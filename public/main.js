@@ -1,7 +1,10 @@
 let values = {
-  title: "default title",
-  subtitle: "default sub-title",
-  fontSize: 12,
+  title: "",
+  subtitle: "Reaper | Open Graph Demo Image",
+  fontSize: 16,
+  fontSizeTwo: 10,
+  color: "#fff",
+  backgroundImageURL: "https://reaper.im/assets/og-dark.png",
 };
 
 const resultImgContainer = document.getElementById("result-image");
@@ -13,10 +16,32 @@ function main() {
   const ogTitle = document.getElementById("og-title");
   const ogSubtitle = document.getElementById("og-subtitle");
   const ogFontSize = document.getElementById("og-font-size");
+  const ogFontSizeTwo = document.getElementById("og-font-size-two");
+  const ogFontColor = document.getElementById("og-font-color");
+  const ogBgUrl = document.getElementById("og-bg-url");
 
-  ogTitle.addEventListener("change", onTitleChange);
-  ogSubtitle.addEventListener("change", onSubtitleChange);
-  ogFontSize.addEventListener("change", onFontSizeChange);
+  // init
+
+  ogTitle.value = values.title;
+  ogSubtitle.value = values.subtitle;
+  ogFontSize.value = values.fontSize;
+  ogFontSizeTwo.value = values.fontSizeTwo;
+  ogFontColor.value = values.color;
+  ogBgUrl.value = values.backgroundImageURL;
+
+  // init end
+
+  ogTitle.addEventListener("change", (e) => onKeyChange(e, "title"));
+  ogSubtitle.addEventListener("change", (e) => onKeyChange(e, "subtitle"));
+  ogFontSize.addEventListener("change", (e) => onKeyChange(e, "fontSize"));
+  ogFontSizeTwo.addEventListener("change", (e) =>
+    onKeyChange(e, "fontSizeTwo")
+  );
+  ogFontColor.addEventListener("change", (e) => onKeyChange(e, "color"));
+  ogBgUrl.addEventListener("change", (e) =>
+    onKeyChange(e, "backgroundImageURL")
+  );
+
   copyButton.addEventListener("click", async (e) => {
     e.preventDefault();
     resultURLCodeContainer.innerHTML = "Copied!";
@@ -31,18 +56,8 @@ function main() {
   });
 }
 
-function onTitleChange(e) {
-  values.title = e.target.value;
-  updateImage();
-}
-
-function onSubtitleChange(e) {
-  values.subtitle = e.target.value;
-  updateImage();
-}
-
-function onFontSizeChange(e) {
-  values.fontSize = e.target.value;
+function onKeyChange(e, key) {
+  values[key] = e.target.value;
   updateImage();
 }
 
@@ -57,6 +72,18 @@ function generateURL() {
   }
   if (values.subtitle) {
     params.append("subtitle", values.subtitle);
+  }
+
+  if (values.fontSizeTwo) {
+    params.append("fontSizeTwo", values.fontSizeTwo);
+  }
+
+  if (values.color) {
+    params.append("color", values.color);
+  }
+
+  if (values.backgroundImageURL) {
+    params.append("backgroundImageURL", values.backgroundImageURL);
   }
 
   return `${url}?${params.toString()}`;
