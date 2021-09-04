@@ -9,90 +9,76 @@
       property="og:image"
       content="https://og.reaper.im/api?fontSize=12&title=Open%20Graph%20Generator&subtitle=by%20BarelyHuman"
     />
-
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/spectre.css/dist/spectre.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"
-    />
-
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="columns m-2">
-        <div class="col-6">
-          <div class="columns">
-            <div class="col-6">
-              <h1>Open Image API</h1>
-              <p class="small">
-                <strong>Open Graph Image as an API service</strong>
-              </p>
-            </div>
-            <div class="col-12"></div>
-            <div class="col-3 mt-2">
-              <div class="form-group">
-                <label class="form-label" for="og-title">Title</label>
-                <input
-                  class="form-input"
-                  type="text"
-                  id="og-title"
-                  value="default title"
-                  placeholder="Title"
-                />
-              </div>
-            </div>
-            <div class="col-12"></div>
-            <div class="col-3 mt-2">
-              <div class="form-group">
-                <label class="form-label" for="og-subtitle">Subtitle</label>
-                <input
-                  class="form-input"
-                  type="text"
-                  id="og-subtitle"
-                  value="default sub-title"
-                  placeholder="Subtitle"
-                />
-              </div>
-            </div>
-            <div class="col-12"></div>
-            <div class="col-3 mt-2">
-              <div class="form-group">
-                <label class="form-label" for="og-font-size">Font Size</label>
-                <input
-                  class="form-input"
-                  type="text"
-                  value="12"
-                  id="og-font-size"
-                  placeholder="Font Size"
-                />
-              </div>
-            </div>
+    <section class="container-boundaries">
+      <h1 class="mt-2 m-0 p-0">OG Image Generator</h1>
+      <h3 class="m-0 p-0">
+        <small> Open Graph Image Generator Service </small>
+      </h3>
+      <header>
+        <nav class="pt-1 pb-1">
+          <a href="/" class="mr-1">Home</a>
+          <a href="/about.html" class="mr-1">About</a>
+          <a href="https://github.com/barelyhuman/og-image-api" class="mr-1">
+            Github
+          </a>
+        </nav>
+      </header>
+
+      <div class="mt-1">
+        <form onsubmit="false">
+          <div class="flex flex-col">
+            <label for=""> <strong>Title</strong></label>
+            <input
+              class="mb-1"
+              type="text"
+              id="og-title"
+              value="default title"
+              placeholder="Title"
+            />
+
+            <label for=""> <strong>Subtitle</strong></label>
+            <input
+              class="mb-1"
+              type="text"
+              id="og-subtitle"
+              value="default sub-title"
+              placeholder="Subtitle"
+            />
+
+            <label for=""> <strong>Font Size</strong></label>
+            <input
+              class="mb-1"
+              type="text"
+              value="12"
+              id="og-font-size"
+              placeholder="Font Size"
+            />
           </div>
-        </div>
-        <div class="col-6">
-          <div class="flex flex-center">
-            <div class="loader show"></div>
-            <img id="result-image" width="100%" class="border rounded" />
-          </div>
-        </div>
+        </form>
       </div>
-      <div class="columns">
-        <div class="col-12 p-center m-2">
-          <div class="flex flex-center m-2">
-            <code id="result-url" class="p-2 s-rounded"></code>
-            <a href="#" class="btn rounded ml-2" id="copy-button">Copy</a>
-          </div>
-        </div>
+    </section>
+    <section class="container-boundaries">
+      <div class="mt-2 flex align-center">
+        <code id="result-url" class="p-1 flex-1 rounded-xs bg-secondary"></code>
+        <a href="#" class="btn rounded ml-2" id="copy-button">Copy</a>
       </div>
-    </div>
+      <div class="mt-2">
+        <div class="loader"></div>
+        <img
+          id="result-image"
+          width="100%"
+          class="border shadow-sm rounded-sm"
+        />
+      </div>
+    </section>
+    <footer>
+      <p class="text-center">
+        Built for fun by <a href="https://reaper.im">Reaper</a>
+      </p>
+    </footer>
     <script src="/main.js"></script>
   </body>
 </html>

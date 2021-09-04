@@ -1,11 +1,11 @@
 let values = {
   title: "default title",
-  subtitle: "default subtitle",
+  subtitle: "default sub-title",
   fontSize: 12,
 };
 
-const resultImg = document.getElementById("result-image");
-const resultURL = document.getElementById("result-url");
+const resultImgContainer = document.getElementById("result-image");
+const resultURLCodeContainer = document.getElementById("result-url");
 const copyButton = document.getElementById("copy-button");
 const loader = document.querySelector(".loader");
 
@@ -19,10 +19,14 @@ function main() {
   ogFontSize.addEventListener("change", onFontSizeChange);
   copyButton.addEventListener("click", async (e) => {
     e.preventDefault();
+    resultURLCodeContainer.innerHTML = "Copied!";
     await copy(generateURL());
+    setTimeout(() => {
+      updateImage();
+    }, 1500);
   });
 
-  resultImg.addEventListener("load", function (e) {
+  resultImgContainer.addEventListener("load", function (e) {
     loader.classList.remove("show");
   });
 }
@@ -61,8 +65,8 @@ function generateURL() {
 function updateImage() {
   loader.classList.add("show");
   const imageUrl = generateURL();
-  resultImg.src = imageUrl;
-  resultURL.innerHTML = imageUrl;
+  resultImgContainer.src = imageUrl;
+  resultURLCodeContainer.innerHTML = imageUrl;
 }
 
 async function copy(text) {
