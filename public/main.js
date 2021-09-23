@@ -1,10 +1,10 @@
 let values = {
-  title: "",
-  subtitle: "Reaper | Open Graph Demo Image",
-  fontSize: 16,
-  fontSizeTwo: 10,
-  color: "#fff",
-  backgroundImageURL: "https://reaper.im/assets/og-dark.png",
+  title: "Post Title",
+  subtitle: "Reaper",
+  fontSize: 14,
+  fontSizeTwo: 8,
+  color: "#000",
+  backgroundImageURL: "https://reaper.im/assets/og-post-background.png",
 };
 
 const resultImgContainer = document.getElementById("result-image");
