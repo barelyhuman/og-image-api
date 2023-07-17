@@ -1,5 +1,5 @@
-github.com/barelyhuman/og-image v0.0.2-0.20210904165213-e2ad079a1469 h1:CqBgTTqQ10UPwKjQOieH3CkPHK421dLvIM6OmLSf4M8=
-github.com/barelyhuman/og-image v0.0.2-0.20210904165213-e2ad079a1469/go.mod h1:RVrt1hcMjzIDPzDXZGxPEs3t9oMhA2r1Wni6/hA2uqc=
+github.com/barelyhuman/og-image v0.0.2 h1:bv4/i8y8u/sySybisQvURxxa6uAeS4iXSGpbSgrUpdU=
+github.com/barelyhuman/og-image v0.0.2/go.mod h1:RVrt1hcMjzIDPzDXZGxPEs3t9oMhA2r1Wni6/hA2uqc=
 github.com/disintegration/imaging v1.6.2 h1:w1LecBlG2Lnp8B3jk5zSuNqd7b4DXhcjwek1ei82L+c=
 github.com/disintegration/imaging v1.6.2/go.mod h1:44/5580QXChDfwIclfc/PCwrr44amcmDAg8hxG0Ewe4=
 github.com/fogleman/gg v1.3.0 h1:/7zJX8F6AaYQc57WQCyN9cAIz+4bCJGO9B+dyW29am8=
