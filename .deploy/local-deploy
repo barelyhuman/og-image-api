@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+APP_NAME=og
+. .env
+
+COMMANDS="""
+mkdir -p /apps/$APP_NAME
+cd /apps/$APP_NAME
+go mod tidy 
+go build -o ./bin/$APP_NAME .
+. ~/.nvm/nvm.sh
+pm2 restart $APP_NAME
+"""
+
+rsync -aP --exclude=".git" --exclude=".env" ./ $DEPLOY_HOST:/apps/$APP_NAME
+
+ssh $DEPLOY_HOST "/bin/bash -c '$COMMANDS'"
+

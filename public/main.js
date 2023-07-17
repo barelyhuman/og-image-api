@@ -4,7 +4,7 @@ let values = {
   fontSize: 14,
   fontSizeTwo: 8,
   color: "#000",
-  backgroundImageURL: "https://reaper.im/assets/og-post-background.png",
+  backgroundImageURL: "",
 };
 
 const resultImgContainer = document.getElementById("result-image");
@@ -62,7 +62,7 @@ function onKeyChange(e, key) {
 }
 
 function generateURL() {
-  const url = `${window.location.origin}/api`;
+  const url = `${window.location.origin}/generate`;
   const params = new URLSearchParams();
   if (values.fontSize) {
     params.append("fontSize", values.fontSize);
