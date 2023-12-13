@@ -5,6 +5,7 @@ let values = {
   fontSizeTwo: 8,
   color: "#000",
   backgroundImageURL: "",
+  backgroundColor: "",
 };
 
 const resultImgContainer = document.getElementById("result-image");
@@ -19,6 +20,7 @@ function main() {
   const ogFontSizeTwo = document.getElementById("og-font-size-two");
   const ogFontColor = document.getElementById("og-font-color");
   const ogBgUrl = document.getElementById("og-bg-url");
+  const ogBgColor = document.getElementById("og-bg-color");
 
   // init
 
@@ -28,19 +30,26 @@ function main() {
   ogFontSizeTwo.value = values.fontSizeTwo;
   ogFontColor.value = values.color;
   ogBgUrl.value = values.backgroundImageURL;
+  ogBgColor.value = values.backgroundColor;
 
   // init end
 
   ogTitle.addEventListener("change", (e) => onKeyChange(e, "title"));
   ogSubtitle.addEventListener("change", (e) => onKeyChange(e, "subtitle"));
   ogFontSize.addEventListener("change", (e) => onKeyChange(e, "fontSize"));
-  ogFontSizeTwo.addEventListener("change", (e) =>
-    onKeyChange(e, "fontSizeTwo")
+  ogFontSizeTwo.addEventListener(
+    "change",
+    (e) => onKeyChange(e, "fontSizeTwo"),
   );
   ogFontColor.addEventListener("change", (e) => onKeyChange(e, "color"));
-  ogBgUrl.addEventListener("change", (e) =>
-    onKeyChange(e, "backgroundImageURL")
+  ogBgUrl.addEventListener(
+    "change",
+    (e) => onKeyChange(e, "backgroundImageURL"),
   );
+  ogBgColor.addEventListener("change", (e) => {
+    debugger;
+    onKeyChange(e, "backgroundColor");
+  });
 
   copyButton.addEventListener("click", async (e) => {
     e.preventDefault();
@@ -84,6 +93,10 @@ function generateURL() {
 
   if (values.backgroundImageURL) {
     params.append("backgroundImageURL", values.backgroundImageURL);
+  }
+
+  if (values.backgroundColor) {
+    params.append("backgroundColor", values.backgroundColor);
   }
 
   return `${url}?${params.toString()}`;

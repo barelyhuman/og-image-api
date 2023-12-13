@@ -1,7 +1,7 @@
 github.com/barelyhuman/go v0.2.1 h1:vbRG/i56+7ttbIQ4WZL5USnL5TspyTUn0R5By8RE3po=
 github.com/barelyhuman/go v0.2.1/go.mod h1:hox2iDYZAarjpS7jKQeYIi2F+qMA8KLMtCws++L2sSY=
-github.com/barelyhuman/og-image v0.0.2 h1:bv4/i8y8u/sySybisQvURxxa6uAeS4iXSGpbSgrUpdU=
-github.com/barelyhuman/og-image v0.0.2/go.mod h1:RVrt1hcMjzIDPzDXZGxPEs3t9oMhA2r1Wni6/hA2uqc=
+github.com/barelyhuman/og-image v0.0.3 h1:5V3FSSRK/uyvxAXPeZqyQuSMCj+/I3/XW0RtNz99o0E=
+github.com/barelyhuman/og-image v0.0.3/go.mod h1:Am3H0Qat7/0tezn2n6l5pm7sz4c9cTzFtQ/mHdm4GpA=
 github.com/disintegration/imaging v1.6.2 h1:w1LecBlG2Lnp8B3jk5zSuNqd7b4DXhcjwek1ei82L+c=
 github.com/disintegration/imaging v1.6.2/go.mod h1:44/5580QXChDfwIclfc/PCwrr44amcmDAg8hxG0Ewe4=
 github.com/fogleman/gg v1.3.0 h1:/7zJX8F6AaYQc57WQCyN9cAIz+4bCJGO9B+dyW29am8=
