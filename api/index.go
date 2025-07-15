@@ -18,11 +18,13 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	color := r.FormValue("color")
 	backgroundImageURL := r.FormValue("backgroundImageURL")
 	backgroundColor := r.FormValue("backgroundColor")
+	padding := r.FormValue("padding")
 
 	fontSizeAsInt, _ := strconv.Atoi(fontSize)
 	fontSizeTwoAsInt, _ := strconv.Atoi(fontSizeTwo)
+	paddingAsInt, _ := strconv.Atoi(padding)
 
-	img := OGImageLib.DrawImage(title, subtitle, fontSizeAsInt, fontSizeTwoAsInt, color, backgroundImageURL, backgroundColor)
+	img := OGImageLib.DrawImage(title, subtitle, fontSizeAsInt, fontSizeTwoAsInt, color, backgroundImageURL, backgroundColor, paddingAsInt)
 	buffer := new(bytes.Buffer)
 	if err := png.Encode(buffer, img); err != nil {
 		log.Println("unable to encode image.")

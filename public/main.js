@@ -6,6 +6,7 @@ let values = {
   color: "#000",
   backgroundImageURL: "",
   backgroundColor: "",
+  padding:40
 };
 
 const resultImgContainer = document.getElementById("result-image");
@@ -21,6 +22,7 @@ function main() {
   const ogFontColor = document.getElementById("og-font-color");
   const ogBgUrl = document.getElementById("og-bg-url");
   const ogBgColor = document.getElementById("og-bg-color");
+  const ogPadding = document.getElementById("og-padding");
 
   // init
 
@@ -31,6 +33,8 @@ function main() {
   ogFontColor.value = values.color;
   ogBgUrl.value = values.backgroundImageURL;
   ogBgColor.value = values.backgroundColor;
+  ogPadding.value = values.padding
+  
 
   // init end
 
@@ -47,9 +51,12 @@ function main() {
     (e) => onKeyChange(e, "backgroundImageURL"),
   );
   ogBgColor.addEventListener("change", (e) => {
-    debugger;
+    
     onKeyChange(e, "backgroundColor");
   });
+  ogPadding.addEventListener("change",(e)=>{
+onKeyChange(e, "padding");
+  })
 
   copyButton.addEventListener("click", async (e) => {
     e.preventDefault();
@@ -97,6 +104,10 @@ function generateURL() {
 
   if (values.backgroundColor) {
     params.append("backgroundColor", values.backgroundColor);
+  }
+
+  if (values.padding) {
+    params.append("padding", values.padding);
   }
 
   return `${url}?${params.toString()}`;
