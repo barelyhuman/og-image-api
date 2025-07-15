@@ -12,34 +12,24 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <section class="container-boundaries">
-      <h1 class="mt-2 m-0 p-0">OG Image Generator</h1>
-      <h3 class="m-0 p-0">
-        <small> Open Graph Image Generator Service </small>
-      </h3>
-      <header>
-        <nav class="pt-1 pb-1">
-          <a href="/" class="mr-1">Home</a>
-          <a href="/about.html" class="mr-1">About</a>
-          <a href="https://github.com/barelyhuman/og-image-api" class="mr-1">
-            Github
-          </a>
+    <main class="og-main">
+      <header class="og-header">
+        <nav class="og-nav">
+          <a href="/">Home</a>
+          <a href="/about.html">About</a>
+          <a href="https://github.com/barelyhuman/og-image-api">Github</a>
         </nav>
+        <h1>OG Image Generator</h1>
+        <p class="og-subtitle">A minimal Open Graph image generator service</p>
       </header>
-      <main class="mt-1">
-        <article>
-          Open Graph Generator is a simple image generator service that works by
-          rendering images as you request them. All images are dynamically
-          rendered and this is done with the help of
-          <a href="https://github.com/barelyhuman/og-image">og-image</a> a tiny
-          library written in go lang
+      <section class="og-content">
+        <article style="max-width: 520px; margin: 0 auto; font-size: 1.08rem; color: var(--gray-6); background: var(--gray-1); border-radius: 10px; padding: 32px 24px;">
+          <p style="margin-top:0;">Open Graph Generator is a simple image generator service that works by rendering images as you request them. All images are dynamically rendered and this is done with the help of <a href="https://github.com/barelyhuman/og-image">og-image</a>, a tiny library written in Go.</p>
         </article>
-      </main>
-    </section>
-    <footer>
-      <p class="text-center">
-        Built for fun by <a href="https://reaper.im">Reaper</a>
-      </p>
-    </footer>
+      </section>
+      <footer class="og-footer">
+        <p>Built for fun by <a href="https://reaper.im">Reaper</a></p>
+      </footer>
+    </main>
   </body>
 </html>

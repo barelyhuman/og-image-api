@@ -6,7 +6,7 @@ let values = {
   color: "#000",
   backgroundImageURL: "",
   backgroundColor: "",
-  padding:40
+  padding: 40,
 };
 
 const resultImgContainer = document.getElementById("result-image");
@@ -25,7 +25,6 @@ function main() {
   const ogPadding = document.getElementById("og-padding");
 
   // init
-
   ogTitle.value = values.title;
   ogSubtitle.value = values.subtitle;
   ogFontSize.value = values.fontSize;
@@ -33,30 +32,36 @@ function main() {
   ogFontColor.value = values.color;
   ogBgUrl.value = values.backgroundImageURL;
   ogBgColor.value = values.backgroundColor;
-  ogPadding.value = values.padding
-  
+  ogPadding.value = values.padding;
 
-  // init end
+  const spFGColor = Spectrum.createIfExists("#og-font-color", {
+    showInitial: true,
+    change: (e) => {
+      values.color = e.detail.color.toHexString();
+      updateImage();
+    },
+  });
 
-  ogTitle.addEventListener("change", (e) => onKeyChange(e, "title"));
-  ogSubtitle.addEventListener("change", (e) => onKeyChange(e, "subtitle"));
-  ogFontSize.addEventListener("change", (e) => onKeyChange(e, "fontSize"));
-  ogFontSizeTwo.addEventListener(
-    "change",
-    (e) => onKeyChange(e, "fontSizeTwo"),
-  );
-  ogFontColor.addEventListener("change", (e) => onKeyChange(e, "color"));
+  const spBGColor = Spectrum.createIfExists("#og-bg-color", {
+    showInitial: true,
+    change: (e) => {
+      values.backgroundColor = e.detail.color.toHexString();
+      updateImage();
+    },
+  });
+
+  // event listeners
+  ogTitle.addEventListener("input", (e) => onKeyChange(e, "title"));
+  ogSubtitle.addEventListener("input", (e) => onKeyChange(e, "subtitle"));
+  ogFontSize.addEventListener("input", (e) => onKeyChange(e, "fontSize"));
+  ogFontSizeTwo.addEventListener("input", (e) => onKeyChange(e, "fontSizeTwo"));
+  ogFontColor.addEventListener("input", (e) => onKeyChange(e, "color"));
   ogBgUrl.addEventListener(
-    "change",
+    "input",
     (e) => onKeyChange(e, "backgroundImageURL"),
   );
-  ogBgColor.addEventListener("change", (e) => {
-    
-    onKeyChange(e, "backgroundColor");
-  });
-  ogPadding.addEventListener("change",(e)=>{
-onKeyChange(e, "padding");
-  })
+  ogBgColor.addEventListener("input", (e) => onKeyChange(e, "backgroundColor"));
+  ogPadding.addEventListener("input", (e) => onKeyChange(e, "padding"));
 
   copyButton.addEventListener("click", async (e) => {
     e.preventDefault();
@@ -64,10 +69,10 @@ onKeyChange(e, "padding");
     await copy(generateURL());
     setTimeout(() => {
       updateImage();
-    }, 1500);
+    }, 1200);
   });
 
-  resultImgContainer.addEventListener("load", function (e) {
+  resultImgContainer.addEventListener("load", function () {
     loader.classList.remove("show");
   });
 }

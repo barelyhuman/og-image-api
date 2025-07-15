@@ -10,107 +10,73 @@
       content="https://og.reaper.im/api?fontSize=12&title=Open%20Graph%20Generator&subtitle=by%20BarelyHuman"
     />
     <link rel="stylesheet" href="/styles.css" />
+    <script src="https://unpkg.com/spectrum-vanilla/dist/spectrum.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/spectrum-vanilla/dist/spectrum.min.css">
   </head>
   <body>
-    <section class="container-boundaries">
-      <h1 class="mt-2 m-0 p-0">OG Image Generator</h1>
-      <h3 class="m-0 p-0">
-        <small> Open Graph Image Generator Service </small>
-      </h3>
-      <header>
-        <nav class="pt-1 pb-1">
-          <a href="/" class="mr-1">Home</a>
-          <a href="/about.html" class="mr-1">About</a>
-          <a href="https://github.com/barelyhuman/og-image-api" class="mr-1">
-            Github
-          </a>
+
+    <main class="og-main">
+      <header class="og-header">
+        <nav class="og-nav">
+          <a href="/">Home</a>
+          <a href="/about.html">About</a>
+          <a href="https://github.com/barelyhuman/og-image-api">Github</a>
         </nav>
+        <h1>OG Image Generator</h1>
+        <p class="og-subtitle">A minimal Open Graph image generator service</p>
       </header>
-
-      <div class="mt-1">
-        <form onsubmit="false">
-          <div class="flex flex-col">
-            <label for=""> <strong>Padding</strong></label>
-            <input
-              class="mb-1"
-              type="text"
-              id="og-padding"
-              placeholder="Padding (default: 40)"
-            />
-
-            <label for=""> <strong>Title</strong></label>
-            <input class="mb-1" type="text" id="og-title" placeholder="Title" />
-
-            <label for=""> <strong>Subtitle</strong></label>
-            <input
-              class="mb-1"
-              type="text"
-              id="og-subtitle"
-              placeholder="Subtitle"
-            />
-
-            <label for=""> <strong>Font Size</strong></label>
-            <input
-              class="mb-1"
-              type="text"
-              id="og-font-size"
-              placeholder="Font Size"
-            />
-
-            <label for=""> <strong>Font Size - Subtitle</strong></label>
-            <input
-              class="mb-1"
-              type="text"
-              id="og-font-size-two"
-              placeholder="Font Size - Subtitle"
-            />
-
-            <label for=""> <strong>Color</strong></label>
-            <input
-              class="mb-1"
-              type="text"
-              id="og-font-color"
-              placeholder="Font Color"
-            />
-
-            <label for=""> <strong>Background Image URL</strong></label>
-            <input
-              class="mb-1"
-              type="text"
-              id="og-bg-url"
-              placeholder="Background Image URL"
-            />
-
-            <label for=""> <strong>Background Color</strong></label>
-            <input
-              class="mb-1"
-              type="text"
-              id="og-bg-color"
-              placeholder="Background Color (eg: #efefef)"
-            />
+      <section class="og-content">
+        <form class="og-form" onsubmit="return false;">
+          <div class="og-fields">
+            <div class="og-field-group">
+              <label for="og-title">Title</label>
+              <input type="text" id="og-title" placeholder="Title" />
+            </div>
+            <div class="og-field-group">
+              <label for="og-subtitle">Subtitle</label>
+              <input type="text" id="og-subtitle" placeholder="Subtitle" />
+            </div>
+            <div class="og-field-group">
+              <label for="og-font-size">Font Size</label>
+              <input type="number" id="og-font-size" placeholder="Font Size" />
+            </div>
+            <div class="og-field-group">
+              <label for="og-font-size-two">Font Size - Subtitle</label>
+              <input type="number" id="og-font-size-two" placeholder="Font Size - Subtitle" />
+            </div>
+            <div class="og-field-group">
+              <label for="og-font-color">Font Color</label>
+              <input type="text" id="og-font-color" placeholder="Font Color" />
+            </div>
+            <div class="og-field-group">
+              <label for="og-bg-url">Background Image URL</label>
+              <input type="text" id="og-bg-url" placeholder="Background Image URL" />
+            </div>
+            <div class="og-field-group">
+              <label for="og-bg-color">Background Color</label>
+              <input type="text" id="og-bg-color" placeholder="Background Color (eg: #efefef)" />
+            </div>
+            <div class="og-field-group">
+              <label for="og-padding">Padding</label>
+              <input type="number" id="og-padding" placeholder="Padding (default: 40)" />
+            </div>
           </div>
         </form>
-      </div>
-    </section>
-    <section class="container-boundaries">
-      <div class="mt-2 flex align-center">
-        <code id="result-url" class="p-1 flex-1 rounded-xs bg-secondary"></code>
-        <a href="#" class="btn rounded ml-2" id="copy-button">Copy</a>
-      </div>
-      <div class="mt-2">
-        <div class="loader"></div>
-        <img
-          id="result-image"
-          width="100%"
-          class="border shadow-sm rounded-sm"
-        />
-      </div>
-    </section>
-    <footer>
-      <p class="text-center">
-        Built for fun by <a href="https://reaper.is">Reaper</a>
-      </p>
-    </footer>
+        <div class="og-preview-block">
+          <div class="og-url-row">
+            <code id="result-url" class="og-url"></code>
+            <a href="#" class="og-copy-btn" id="copy-button">Copy</a>
+          </div>
+          <div class="og-image-preview">
+            <div class="loader"></div>
+            <img id="result-image" width="100%" />
+          </div>
+        </div>
+      </section>
+      <footer class="og-footer">
+        <p>Built for fun by <a href="https://reaper.is">Reaper</a></p>
+      </footer>
+    </main>
     <script src="/main.js"></script>
   </body>
 </html>
